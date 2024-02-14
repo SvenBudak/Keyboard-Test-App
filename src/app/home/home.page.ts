@@ -52,7 +52,7 @@ export class HomePage implements OnInit, ViewWillEnter {
 
   togglePicker() {
     this.showPicker = !this.showPicker;
-    this.setFocus();
+    Keyboard.hide();
   }
 
   keyDownEnter(event: any) {
@@ -60,6 +60,10 @@ export class HomePage implements OnInit, ViewWillEnter {
     if (!event.shiftKey) {
       this.sendMessage();
     }
+  }
+
+  focusTextarea() {
+    this.showPicker = false;
   }
 
   scrollDown() {

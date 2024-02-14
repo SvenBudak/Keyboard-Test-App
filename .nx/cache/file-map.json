@@ -338,7 +338,7 @@
       },
       {
         "file": "src/app/home/home.page.html",
-        "hash": "1812660906918358279"
+        "hash": "1845717462543239997"
       },
       {
         "file": "src/app/home/home.page.scss",
@@ -346,7 +346,7 @@
       },
       {
         "file": "src/app/home/home.page.ts",
-        "hash": "2143576357968190062"
+        "hash": "2533101067827539557"
       },
       {
         "file": "src/assets/icon/favicon.png",
@@ -394,7 +394,7 @@
       },
       {
         "file": "src/theme/variables.scss",
-        "hash": "10683809365950317113"
+        "hash": "9226517194434453125"
       },
       {
         "file": "src/zone-flags.ts",

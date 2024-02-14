@@ -29,6 +29,7 @@
       #messageInput
       [(ngModel)]="message"
       label="Default input"
+      (focus)="focusTextarea()"
       (keydown.enter)="keyDownEnter($event)"
     ></textarea>
 
