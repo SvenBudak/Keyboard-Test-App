@@ -12,6 +12,7 @@ import {DomSanitizer} from "@angular/platform-browser";
 import {dummyMessages} from "../app.const";
 import {FormsModule} from "@angular/forms";
 import {CommonModule} from "@angular/common";
+import { Keyboard } from '@capacitor/keyboard';
 
 @Component({
   selector: 'app-home',
@@ -42,7 +43,7 @@ export class HomePage implements OnInit, ViewWillEnter {
 
   async onSendClicked() {
     this.sendMessage()
-      .finally(() => this.ionContent?.scrollToBottom(0))
+      .finally(() => this.scrollDown())
   }
 
   setFocus() {
@@ -61,12 +62,35 @@ export class HomePage implements OnInit, ViewWillEnter {
     }
   }
 
-  ngOnInit() {
-    // Laden der Dummy-Nachrichten beim Initialisieren
-    this.messages = [...dummyMessages];
+  scrollDown() {
+    this.ionContent?.scrollToBottom(0)
   }
 
   ionViewWillEnter() {
-    this.ionContent?.scrollToBottom(0);
+    this.scrollDown();
+  }
+
+  ngOnInit() {
+    this.messages = [...dummyMessages];
+
+    Keyboard.addListener('keyboardDidShow', info => {
+      console.log('keyboard will show with height:', info.keyboardHeight);
+      // Adjust your UI based on keyboard height here
+      Promise.resolve().then(() => {
+        this.scrollDown();
+      });
+    });
+
+    // Add listeners for other events as needed
+
+    Keyboard.addListener('keyboardDidHide', () => {
+      console.log('keyboard did hide');
+      // Reset any UI adjustments made for the keyboard
+    });
+  }
+
+  ngOnDestroy() {
+    // Remove event listeners to avoid memory leaks
+    Keyboard.removeAllListeners().then(res => console.log(res));
   }
 }
