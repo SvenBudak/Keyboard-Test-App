@@ -1,0 +1,17 @@
+export const dummyMessages = [
+  'Hey Team, I just started working on the new feature.',
+  'So, I used a CSS framework, and guess what? It broke everything!',
+  'Turns out, I forgot to close a div. Classic frontend developer mistake.',
+  'Fixed it, but now the header is all wonky.',
+  'Never mind, it was just a cache issue. Have you tried turning it off and on again?',
+  "Okay, who added a 'z-index' of 9999 to the modal overlay?",
+  'Sigh, the client wants us to make the logo bigger again.',
+  "Just realized I've been editing the wrong file for the past hour...",
+  'Good news! The page finally loads in under 3 seconds.',
+  "Bad news... it's completely blank on Internet Explorer.",
+  'Why do we still support IE, again?',
+  "Update: I've added a new feature. It's a spinning loader that never stops. It's mesmerizing.",
+  "Remember the spinning loader? It's now the company's favorite feature. Go figure!",
+  "I've started dreaming in JavaScript. Is that normal?",
+  "Last one for today: I fixed a bug, and nothing else broke. I'm just as surprised as you are!",
+];

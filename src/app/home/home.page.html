@@ -1,0 +1,41 @@
+<ion-header class="ion-no-border transition-shadow" [ngClass]="{ '!shadow-dividing-line': scrollTop > 0 }">
+  <ion-toolbar class="bg-gray-950" style="--background: #1C1d22">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+
+    <div class="flex text-color-text">
+      <img class="w-10 h-10 rounded-full" src="https://dummyimage.com/64x64/f2f2f2/303030.png" alt="">
+      <ion-title class="truncate">Username</ion-title>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content style="--background: #1C1d22" [fullscreen]="true" [scrollEvents]="true" (ionScroll)="scrollTop = $event.detail.scrollTop">
+  <ul class="p-3 flex flex-col gap-2">
+    <li class="w-max max-w-fit p-2 bg-[#27282D] rounded" *ngFor="let msg of messages">{{ msg }}</li>
+  </ul>
+</ion-content>
+
+<ion-footer class="ion-no-border p-3">
+  <div class="input-area">
+    <button class="w-12 h-12" (click)="togglePicker()">
+      <ion-icon class="w-6 h-6" src="/assets/icon/picker.svg" size="small"></ion-icon>
+    </button>
+
+    <textarea
+      name="message"
+      rows="1"
+      #messageInput
+      [(ngModel)]="message"
+      label="Default input"
+      (keydown.enter)="keyDownEnter($event)"
+    ></textarea>
+
+    <button class="w-12 h-12" (click)="onSendClicked()">
+      <ion-icon class="w-6 h-6" src="/assets/icon/send.svg" size="small"></ion-icon>
+    </button>
+  </div>
+
+  <div *ngIf="showPicker" class="picker"></div>
+</ion-footer>

@@ -1,0 +1,22 @@
+.picker {
+  height: 288px;
+  background-color: bisque;
+}
+
+.input-area {
+  width: 100%;
+  position: relative;
+  display: grid;
+  grid-template-columns: 48px 1fr 48px;
+  background-color: #27282D;
+  border-radius: 4px;
+  align-items: center;
+  justify-content: center;
+
+  textarea {
+    all: unset;
+    margin: 8px 0;
+    color: #f3f3f3;
+  }
+}
+
