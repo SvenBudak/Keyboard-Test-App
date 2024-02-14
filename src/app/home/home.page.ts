@@ -42,8 +42,7 @@ export class HomePage implements OnInit, ViewWillEnter {
   }
 
   async onSendClicked() {
-    this.sendMessage()
-      .finally(() => this.scrollDown())
+    this.sendMessage().finally(() => this.scrollDown())
   }
 
   setFocus() {
