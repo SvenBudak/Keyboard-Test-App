@@ -73,6 +73,10 @@ export class HomePage implements OnInit, ViewWillEnter {
   ngOnInit() {
     this.messages = [...dummyMessages];
 
+    Keyboard.addListener('keyboardWillShow', info => {
+      console.log('keyboard will show with height:', info.keyboardHeight);
+    });
+
     Keyboard.addListener('keyboardDidShow', info => {
       console.log('keyboard will show with height:', info.keyboardHeight);
       // Adjust your UI based on keyboard height here
@@ -81,11 +85,12 @@ export class HomePage implements OnInit, ViewWillEnter {
       });
     });
 
-    // Add listeners for other events as needed
+    Keyboard.addListener('keyboardWillHide', () => {
+      console.log('keyboard will hide');
+    });
 
     Keyboard.addListener('keyboardDidHide', () => {
       console.log('keyboard did hide');
-      // Reset any UI adjustments made for the keyboard
     });
   }
 
