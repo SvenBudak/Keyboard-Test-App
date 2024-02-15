@@ -57,7 +57,7 @@ export class HomePage implements OnInit, ViewWillEnter {
   keyDownEnter(event: any) {
     event.preventDefault();
     if (!event.shiftKey) {
-      this.sendMessage();
+      this.onSendClicked();
     }
   }
 
