@@ -1,4 +1,4 @@
-import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import {
   IonHeader,
   IonToolbar,
@@ -8,10 +8,10 @@ import {
   IonButtons,
   IonBackButton, IonFooter, IonIcon
 } from '@ionic/angular/standalone';
-import {DomSanitizer} from "@angular/platform-browser";
-import {dummyMessages} from "../app.const";
-import {FormsModule} from "@angular/forms";
-import {CommonModule} from "@angular/common";
+import { DomSanitizer } from "@angular/platform-browser";
+import { dummyMessages } from "../app.const";
+import { FormsModule } from "@angular/forms";
+import { CommonModule } from "@angular/common";
 import { Keyboard } from '@capacitor/keyboard';
 
 @Component({
@@ -50,8 +50,17 @@ export class HomePage implements OnInit, ViewWillEnter {
   }
 
   togglePicker() {
-    this.showPicker = !this.showPicker;
-    Keyboard.hide();
+    if (this.showPicker) { // hide
+      this.showPicker = false;
+      this.scrollDown();
+      this.setFocus();
+    } else { // show
+      Keyboard.hide();
+      setTimeout(() => {
+        this.showPicker = true;
+        this.scrollDown();
+      }, 100);
+    }
   }
 
   keyDownEnter(event: any) {
